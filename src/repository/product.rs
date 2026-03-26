@@ -1,6 +1,6 @@
+use crate::model::product::Product;
 use dashmap::DashMap;
 use lazy_static::lazy_static;
-use crate::model::product::Product;
 
 // Singleton of Database
 lazy_static! {

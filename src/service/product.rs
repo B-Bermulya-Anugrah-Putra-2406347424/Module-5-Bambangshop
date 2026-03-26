@@ -1,9 +1,9 @@
 use rocket::http::Status;
 use rocket::serde::json::Json;
 
-use bambangshop::{Result, compose_error_response};
 use crate::model::product::Product;
 use crate::repository::product::ProductRepository;
+use bambangshop::{compose_error_response, Result};
 
 pub struct ProductService;
 
@@ -24,7 +24,7 @@ impl ProductService {
         if product_opt.is_none() {
             return Err(compose_error_response(
                 Status::NotFound,
-                String::from("Product not found.")
+                String::from("Product not found."),
             ));
         }
         return Ok(product_opt.unwrap());
@@ -35,7 +35,7 @@ impl ProductService {
         if product_opt.is_none() {
             return Err(compose_error_response(
                 Status::NotFound,
-                String::from("Product not found.")
+                String::from("Product not found."),
             ));
         }
         let product: Product = product_opt.unwrap();
